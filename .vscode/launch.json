@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Local",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/vitepress/bin/vitepress.js",
+      "args": ["dev"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Stage",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/vitepress/bin/vitepress.js",
+      "args": ["preview"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Production",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/vitepress/bin/vitepress.js",
+      "args": ["build"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
