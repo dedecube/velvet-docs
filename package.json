@@ -3,6 +3,7 @@
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.0.0",
     "@nolebase/vitepress-plugin-git-changelog": "^2.0.0",
     "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.0.0",
+    "@types/node": "^22.2.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
