@@ -1,6 +1,36 @@
 import { GitChangelog, GitChangelogMarkdownSection, } from '@nolebase/vitepress-plugin-git-changelog/vite';
+import fs from 'fs';
+import path from 'path';
 import { defineConfig } from 'vitepress';
 import { withMermaid } from "vitepress-plugin-mermaid";
+
+const distPath = path.resolve(__dirname, 'dist');
+
+// Function to recursively process files
+function processDirectory(directoryPath) {
+    const items = fs.readdirSync(directoryPath);
+
+    items.forEach(item => {
+        const itemPath = path.join(directoryPath, item);
+        const stats = fs.statSync(itemPath);
+
+        if (stats.isDirectory()) {
+            // If it's a directory, recursively process it
+            processDirectory(itemPath);
+        } else if (stats.isFile() && path.extname(item) === '.html' && item !== 'index.html') {
+            // If it's an HTML file and not already named index.html
+            const dirName = path.basename(item, '.html');
+            const newDirPath = path.join(directoryPath, dirName);
+
+            // Create a new directory with the same name as the file (without extension)
+            fs.mkdirSync(newDirPath);
+
+            // Move the HTML file to the new directory and rename it to index.html
+            const newIndexPath = path.join(newDirPath, 'index.html');
+            fs.renameSync(itemPath, newIndexPath);
+        }
+    });
+}
 
 export default withMermaid(
   defineConfig({
@@ -116,6 +146,9 @@ export default withMermaid(
       socialLinks: [
         { icon: 'github', link: 'https://github.com/dedecube' },
       ]
+    },
+    buildEnd: () => {
+      processDirectory(distPath);
     }
   })
 );
