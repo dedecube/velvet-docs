@@ -1,58 +1,48 @@
-body {
-  font-family: 'Ubuntu', sans-serif;
+html {
+  line-height: 1.5;
+  font-family: 'Satoshi';
 }
 
 :root {
-  --vp-c-brand-1: #64c9d5; 
-  --vp-c-brand-2: #1f1948; 
-  --vp-c-brand-3: #64c9d5; 
-  --vp-c-brand-soft: rgba(100, 201, 213, 0.14);
-
-  --vp-c-text-1: #1f1948; 
-  --vp-c-text-2: rgba(31, 25, 72, 0.78); 
-  --vp-c-text-3: rgba(31, 25, 72, 0.56);
-
-  --vp-c-bg: #ffffff;
-  --vp-c-bg-alt: #f6f6f7;
-  --vp-c-bg-soft: rgba(100, 201, 213, 0.1); 
-
-  --vp-button-brand-bg: #64c9d5;
-  --vp-button-brand-hover-bg: #1f1948;
-  --vp-button-brand-text: #ffffff; 
+  --docsearch-container-background:rgba(33, 33, 33, 0.8);
   
-  --vp-custom-block-info-bg: rgba(100, 201, 213, 0.1);
-  --vp-custom-block-note-bg: rgba(100, 201, 213, 0.1);
-  --vp-badge-info-bg: rgba(100, 201, 213, 0.2);
 }
 
-.dark {
-  --vp-c-brand-1: #64c9d5;
-  --vp-c-brand-2: #a8b1ff;
-  --vp-c-brand-3: #64c9d5;
-  --vp-c-brand-soft: rgba(100, 201, 213, 0.16);
+/* html:not(.dark) .VPSidebar {
+  border-right: 1px solid #eaeaea;
+  background-color: #fff;
+}
 
-  --vp-c-text-1: #ffffff;
-  --vp-c-text-2: rgba(255, 255, 255, 0.6);
-  --vp-c-text-3: rgba(255, 255, 255, 0.38);
+html:not(.dark) .curtain {
+  background-color: #fff;
+} */
 
-  --vp-c-bg: #1b1b1f;
-  --vp-c-bg-alt: #161618;
-  --vp-c-bg-soft: rgba(100, 201, 213, 0.16);
-  
-  --vp-button-brand-bg: #64c9d5;
-  --vp-button-brand-hover-bg: #1f1948;
-  --vp-button-brand-text: #ffffff;
-  
-  --vp-custom-block-info-bg: rgba(100, 201, 213, 0.16);
-  --vp-custom-block-note-bg: rgba(100, 201, 213, 0.16);
-  --vp-badge-info-bg: rgba(100, 201, 213, 0.24);
+main h1 {
+  font-size: 2.5em !important;
+  letter-spacing: 0em;
+}
+
+main h2 {
+  letter-spacing: 0;
+  font-size: 1.75em !important;
+  margin-bottom: 32px !important;
+}
+
+main p {
+  font-size: 1rem;
+  line-height: 1.8em;
 }
 
 .dark .go-to-top {
-    background-color: #333 !important;
-    color: #fff !important;
+  background-color: #333 !important;
+  color: #fff !important;
 }
 
 .VPSocialLinks.VPNavBarSocialLinks.social-links {
   margin-right: 0;
 }
+
+.header-anchor {
+  opacity: 1 !important;
+}
+
