@@ -1,21 +1,19 @@
 html {
   line-height: 1.5;
-  font-family: 'Satoshi';
 }
 
 :root {
-  --docsearch-container-background:rgba(33, 33, 33, 0.8);
-  
+  --vp-font-family-base: 'Satoshi';
+  --vp-c-brand-1: rgb(50, 133, 235);
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-bg: rgb(40, 110, 196);
+  --vp-c-divider: transparent;
+  --vp-nav-height: 80px;
 }
 
-/* html:not(.dark) .VPSidebar {
-  border-right: 1px solid #eaeaea;
-  background-color: #fff;
+.dark {
+  --vp-home-hero-name-color: rgb(184, 184, 184);
 }
-
-html:not(.dark) .curtain {
-  background-color: #fff;
-} */
 
 main h1 {
   font-size: 2.5em !important;
@@ -42,7 +40,89 @@ main p {
   margin-right: 0;
 }
 
-.header-anchor {
-  opacity: 1 !important;
+@media (min-width: 768px) {
+  .header-anchor {
+    opacity: 1 !important;
+  }
+
+  .VPLocalNav {
+    display: none;
+  }
 }
 
+.dark .vp-doc h1,
+.dark .vp-doc h2,
+.dark .vp-doc h3,
+.dark .vp-doc h4,
+.dark .vp-doc h5,
+.dark .vp-doc h6 {
+  color: rgb(231 232 242);
+}
+
+.VPDocAside nav {
+  background-color: var(--vp-sidebar-bg-color);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#VPContent > div > div > div.aside > div.aside-container > div > div > nav > div {
+  border-left: 1px solid transparent;
+}
+
+.divider {
+  opacity: 0;
+}
+
+#app > div > header > div > div.wrapper > div > div.title > div > a > span {
+  font-size: 2em;
+}
+
+.VPImage.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.VPSidebar .curtain {
+  top: calc(var(--vp-nav-height) * -1);
+}
+
+#app > div > header > div > div.wrapper > div > div.content > div {
+  background-color: transparent;
+}
+
+.vp-doc h1 {
+  margin-bottom: 32px;
+}
+
+.VPSidebarItem {
+  transition: all 0.3s;
+  transform: translateX(15px);
+}
+
+.VPSidebarItem.is-active .indicator {
+  width: 5px;
+}
+
+.VPSidebarItem .indicator::before {
+  transition: all 0.3s;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  transform: rotate(120deg) scale(1.1);
+  border-radius: 2px;
+}
+
+.VPSidebarItem.is-active .indicator::before {
+  border-bottom-color: var(--vp-c-brand-1);
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  transform: rotate(145deg) scale(1);
+  border-radius: 2px;
+}
