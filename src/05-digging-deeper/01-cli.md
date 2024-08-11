@@ -1,8 +1,8 @@
 ---
-title: Pfy
+title: Cli
 ---
 
-# Pfy
+# Cli
 
 ::: warning
 Coming Soon
