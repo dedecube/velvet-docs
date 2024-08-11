@@ -19,6 +19,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "case-anything": "^3.1.0",
     "markdown-it": "^14.1.0",
     "vitepress-plugin-back-to-top": "^1.0.1"
   }
