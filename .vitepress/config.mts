@@ -68,7 +68,7 @@ export default withMermaid(
       sidebar: generateSidebar(path.resolve(__dirname, '..', 'src')),
       socialLinks: [
         { icon: 'github', link: 'https://github.com/dedecube' },
-        { icon: "discord", link: "https://discord.gg/j63rqVXACj" },
+        { icon: "discord", link: "https://discord.gg/BBjvZeJY" },
       ],
       search: {
         provider: 'local'
