@@ -6,11 +6,6 @@ title: Directory Structure
 
 ## The `root` Directory
 
-#### .vscode
-
-The `.vscode` directory is a well-known directory for Vscode user. 
-This directory contains some useful IDE configuration like tasks, launch and extensions.
-
 #### android
 
 The `android` directory is a well-known directory for Flutter users.
@@ -19,10 +14,6 @@ This directory contains all stuff about android build.
 #### assets
 
 The `assets` directory houses all images, icons, translation that will be bundled within application.
-
-#### config
-
-The `config` directory contains Firebase configuration files.
 
 #### ios
 
