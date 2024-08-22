@@ -4,7 +4,6 @@ layout: home
 hero:
   name: Velvet
   tagline: A modern, flexible and powerful framework for building flutter applications.
-  image: /velvet-logo-with-radial-radius.svg
   actions:
     - theme: brand
       text: Get Started
