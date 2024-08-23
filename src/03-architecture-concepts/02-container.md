@@ -4,11 +4,9 @@ title: Container
 
 # Container
 
-# Container
-
 The Velvet framework includes an IoC (Inversion of Control) container implemented using the `get_it` package. This container helps manage and inject dependencies throughout your Flutter application, promoting modularity and ease of testing.
 
-## Why
+## Why IoC Container?
 
 Using an IoC container simplifies dependency management by centralizing the creation and configuration of objects. It decouples the components of your application, making them easier to test and maintain. For best practices, we recommend using abstract classes (Contracts) for defining dependencies. This approach enhances flexibility and allows for easy substitution with mock implementations during testing.
 

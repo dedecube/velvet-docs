@@ -6,7 +6,7 @@ title: Configuration
 
 In Velvet, configurations allow you to manage settings and options for services and plugins in a structured way. A configuration is represented by a class that extends the `VelvetConfig` class, which currently serves as a marker interface. Configurations can be registered globally, enabling different parts of your application to access shared settings.
 
-## Why
+## Why Use Configurations?
 
 Configurations centralize the management of settings across your application, providing a clear and consistent way to handle options for services, plugins, and other components. By using configurations, you can ensure that your services and plugins are easily configurable, maintainable, and extensible. Additionally, configurations registered in the main application can override those registered by plugins, giving you control over application behavior.
 

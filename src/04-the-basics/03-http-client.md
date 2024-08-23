@@ -6,10 +6,6 @@ title: HTTP Client
 
 Velvet provides a robust HTTP client built on top of Dio, offering a structured approach to making HTTP requests and handling responses. By encapsulating requests and responses within classes, Velvet simplifies API interactions and enforces a clear contract for request structure and response handling.
 
-## Why Use Velvet's HTTP Client?
-
-Velvet’s HTTP client abstracts the complexities of request handling and response parsing, ensuring a consistent and streamlined approach to API communication. By defining each request as a class, Velvet enforces a standardized structure, making it easier to manage and maintain API interactions across your application.
-
 ::: info
 Velvet’s HTTP client is built on top of Dio, a powerful HTTP client for Dart and Flutter. Dio provides a rich set of features, including interceptors, request cancellation, and response parsing, which are leveraged by Velvet to enhance the HTTP client’s capabilities.
 
