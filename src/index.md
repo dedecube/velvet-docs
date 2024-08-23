@@ -25,7 +25,7 @@ features:
   - icon: 🔌
     title: Plugins
     details: An easy to learn plugin API that allows you to implement powerful features.
-    link: /plugins/create-a-plugin
+    link: /plugins/write-a-plugin
     linkText: Learn how to write plugins
   - icon: 📖
     title: Api Reference
