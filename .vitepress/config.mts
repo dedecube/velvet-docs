@@ -35,6 +35,7 @@ export default withMermaid(
     srcDir: './src',
     lang: 'en-US',
     cleanUrls: true,
+    ignoreDeadLinks: true,
     locales: {
       root: {
         label: 'English',
