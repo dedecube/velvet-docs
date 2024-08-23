@@ -43,5 +43,5 @@ When the first route is reached and built, the app fires a `HideLoadingWidgetEve
 
 The app is now ready to be used by the user.
 
-## Error handling
+## Error handling
 The `KernelWidget` widget is also responsible for handling any errors that occur during the app's lifecycle. 

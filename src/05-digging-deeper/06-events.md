@@ -1,8 +1,8 @@
 ---
-title: Bootstrap
+title: Events
 ---
 
-# Bootstrap
+# Events
 
 ::: warning
 Coming Soon

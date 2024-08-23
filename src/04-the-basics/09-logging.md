@@ -1,8 +1,8 @@
 ---
-title: Persistence
+title: Logging
 ---
 
-# Persistence
+# Logging
 
 ::: warning
 Coming Soon
