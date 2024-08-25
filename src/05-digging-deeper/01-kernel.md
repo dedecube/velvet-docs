@@ -4,6 +4,8 @@ title: Kernel
 
 # Kernel
 
+[[toc]]
+
 When you `createVelvetApp`, you are creating a `VelvetKernel` instance. The kernel is the heart of your application. It is responsible for managing the application lifecycle, booting plugins, and handling errors.
 
 ## Core Concepts
@@ -114,6 +116,30 @@ void main() {
 }
 ```
 
+#### Add riverpod override
+
+```dart
+import 'package:velvet_framework/velvet_framework.dart';
+
+void main() {
+  createVelvetApp()
+    ..addRiverpodOverride(exampleProvider.overrideWith((ref) => 'Hello, Velvet!')) // [!code focus]
+    ..run();
+}
+```
+
+#### Add riverpod observer
+
+```dart
+import 'package:velvet_framework/velvet_framework.dart';
+
+void main() {
+  createVelvetApp()
+    ..addRiverpodObserver(MyRiverpodObserver()) // [!code focus]
+    ..run();
+}
+```
+
 #### Override the App Widget
 
 ::: warning
@@ -145,9 +171,23 @@ void main() {
 }
 ```
 
-## Extensions
+#### Opt out from the env loading
+
+```dart
+import 'package:velvet_framework/velvet_framework.dart';
+
+void main() {
+  createVelvetApp()
+    ..optOutFromEnvLoading() // [!code focus]
+    ..run();
+}
+```
+
+## Extending the Kernel
 
 To provide more methods to the kernel, you can create extensions on `VelvetKernelContract` and use it in the main function.
+
+Creating an extension could be useful to clean up the main function and make it more readable.
 
 This helps to keep the main function clean and easy to read.
 
