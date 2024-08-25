@@ -26,11 +26,7 @@ void main() {
 }
 ```
 
-## PluginManager
-
-The `PluginManager` is responsible for managing the plugins of your application. It is responsible for registering and booting plugins.
-
-### Add a plugin
+#### Add a plugin
 
 ```dart
 import 'package:velvet_framework/velvet_framework.dart';
@@ -44,7 +40,7 @@ void main() {
 }
 ```
 
-### Add a plugin manager observer
+#### Add a plugin manager observer
 
 ```dart
 import 'package:velvet_framework/velvet_framework.dart';
@@ -59,7 +55,7 @@ void main() {
 }
 ```
 
-### Add a plugin observer
+#### Add a plugin observer
 
 ```dart
 
@@ -75,12 +71,7 @@ void main() {
 }
 ```
 
-## ConfigManager
-
-The `ConfigManager` is responsible for managing the configurations of your application. It is responsible for registering and retrieving configurations.
-
-
-### Add a configuration
+#### Add a configuration
 
 ```dart
 import 'package:velvet_framework/velvet_framework.dart';
@@ -94,14 +85,43 @@ void main() {
 }
 ```
 
-### Override the App Widget
+#### Add a register callback
+
+```dart
+import 'package:velvet_framework/velvet_framework.dart';
+
+void main() {
+  createVelvetApp()
+    ..withRegister((container) { // [!code focus]
+      container.register<MyServiceContract>((container) => MyService()); // [!code focus]
+    }) // [!code focus]
+    ..run();
+}
+```
+
+#### Add a boot callback
+
+```dart
+import 'package:velvet_framework/velvet_framework.dart';
+
+void main() {
+  createVelvetApp()
+    ..withBoot((container) { // [!code focus]
+      final myService = container.get<MyServiceContract>(); // [!code focus]
+      myService.boot(); // [!code focus]
+    }) // [!code focus]
+    ..run();
+}
+```
+
+#### Override the App Widget
 
 ::: warning
 This feature is not yet available.
 :::
 
 
-### Override the Error Widget
+#### Override the Error Widget
 
 ```dart
 import 'package:velvet_framework/velvet_framework.dart';
@@ -113,7 +133,7 @@ void main() {
 }
 ```
 
-### Override the Loading Widget
+#### Override the Loading Widget
 
 ```dart
 import 'package:velvet_framework/velvet_framework.dart';
