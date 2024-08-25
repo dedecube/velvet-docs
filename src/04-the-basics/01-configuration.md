@@ -85,14 +85,52 @@ This access method allows you to retrieve the appropriate configuration for your
 
 ## Binding Environment Variables to Configurations
 
-::: info We are working on!
-We are working on adding this feature in future versions of Velvet. Stay tuned for updates!
-:::
+Velvet has some built-in support for binding environment variables to configurations. This feature will allow you to define configurations that can be overridden by environment variables, making it easier to manage settings across different environments.
 
-Velvet does not currently provide an official method for binding environment variables directly to configurations.
+It also support loading configurations from `.env` files, which can be useful for managing environment-specific settings in your application.
 
-However, you can integrate with third-party libraries or use native Dart features to achieve this, for example:
+## Getting a environment variable
 
-1. Dart native `String.fromEnvironment`
-2. `flutter_dotenv`
-3. `envied`
+To get a value from a configuration, you can use the `env` method:
+
+```dart
+env('API_URL');
+
+// or with a default value
+
+env('API_URL', 'https://api.example.com');
+```
+
+Are also available the `envInt`, `envDouble`, `envBool` and `envList` methods.
+
+## How Velvet load environment variables
+
+Velvet loads environment in two different ways:
+- On debug mode, from the `.env` file in the root of your project, using the `flutter_dotenv` package.
+- On release mode, from the system environment variables.
+
+### Why two different ways?
+
+To provide a better development experience, Velvet uses the `.env` file to load environment variables in debug mode. This allows you to define environment-specific settings in a single file, making it easier to manage configurations across different environments.
+
+The flutter_dotenv package works by reading the `.env` file that it will be included in the assets of your project. The approach to include the `.env` is not the best, but it is fine to use in development mode.
+
+Using flutter_dotenv, Velvet provide a sort of "hot reload" for environment variables, allowing you to update the `.env` file and see the changes reflected in your application without restarting it. This is done by re-read the `.env` file every time the KernelWidget is reassembled. It also trigger an entire refresh of every registred configuration.
+
+In release mode, Velvet using the String.fromEnvironment method to get the environment variables. This method is provided by the Dart SDK and allows you to access environment variables set by the system. So it is important to add `--dart-define-from-file=.env` when building your application. We also suggest to obfuscate your application to discourage the reverse engineering of your application (this is not a guarantee of security and do not encrypt the env variables).
+
+### Using another approach
+
+If you want to use another approach to load environment variables, like usage of `envied` package, you must opt-out from the `.env` file loading.
+
+```dart
+main () {
+  createVelvetApp()
+    ..withConfig((configManager) {
+      configManager
+        ..register<MyConfigContract>(MyConfig());
+    })
+    ..optOutFromEnvLoading()
+    ..run(loadEnv: false);
+}
+``` 
