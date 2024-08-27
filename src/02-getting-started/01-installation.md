@@ -4,10 +4,6 @@ title: Installation
 
 # Installation
 
-::: warning
-Coming Soon
-:::
-
 ## Meet Velvet
 
 Velvet is a Flutter framework designed to streamline your app development process with an expressive and intuitive syntax. It offers a solid foundation, allowing you to focus on bringing your vision to life while Velvet takes care of the heavy lifting.
@@ -26,8 +22,28 @@ In essence, Velvet is designed to simplify the more complex aspects of Flutter d
 
 ## Creating a New Project
 
-To create a new Velvet project you can clone the [Velvet Starter](https://github.com/dedecube/velvet-started).
-
-::: info
-We are working on a CLI tool to create a new Velvet project.
+::: warning
+The velvet_cli:init is not yet implemented. We are working on it.
 :::
+
+Currently, we are provided a single way to create a new Velvet project.
+
+1. Create a flutter project with the following command:
+
+```bash
+flutter create --org com.example --project-name my_project my_project
+```
+
+2. Add `velvet_cli` to your project by adding the following dependencies to your `pubspec.yaml` file:
+
+```yaml
+flutter pub add dev:velvet_cli
+```
+
+3. Run the following command to generate the Velvet project structure:
+
+```bash
+flutter pub run velvet_cli:init
+```
+
+That's it! You've successfully created a new Velvet project. You can now explore the project structure and start building your app with Velvet.
