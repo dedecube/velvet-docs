@@ -9,6 +9,24 @@ title: Helpers
 Velvet provides a set of helper functions to make your life easier.
 Most of these functions are available using dart extensions.
 
+
+## Installation
+
+If you are using velvet_framework, you don't need to install this package separately. It is already included in the framework.
+
+Add this to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  velvet_support: ^1.0.0
+```
+
+Then, run:
+
+```bash
+flutter pub get
+```
+
 ## String Extensions
 
 ### Bounds
