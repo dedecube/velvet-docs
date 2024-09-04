@@ -1,7 +1,4 @@
 
-import {
-  NolebaseGitChangelogPlugin
-} from '@nolebase/vitepress-plugin-git-changelog/client'
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 import type { Theme } from 'vitepress'
 import vitepressBackToTop from 'vitepress-plugin-back-to-top'
@@ -15,6 +12,5 @@ export default {
     vitepressBackToTop({
       threshold: 300,
     });
-    app.use(NolebaseGitChangelogPlugin);
   },
 } satisfies Theme;

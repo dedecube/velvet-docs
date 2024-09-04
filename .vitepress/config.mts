@@ -1,4 +1,3 @@
-import { GitChangelog, GitChangelogMarkdownSection, } from '@nolebase/vitepress-plugin-git-changelog/vite';
 import path from 'path';
 import { defineConfig } from 'vitepress';
 import { withMermaid } from "vitepress-plugin-mermaid";
@@ -8,12 +7,7 @@ import { generateSidebar } from './utils/generate-sidebar';
 export default withMermaid(
   defineConfig({
     vite: {
-      plugins: [
-        GitChangelog({ 
-          repoURL: () => 'https://github.com/dedecube/docs-web.git', 
-        }), 
-        GitChangelogMarkdownSection(),
-      ],
+      plugins: [],
       optimizeDeps: {
         include: [
           '@nolebase/vitepress-plugin-enhanced-readabilities > @nolebase/ui > @rive-app/canvas',
