@@ -22,10 +22,6 @@ In essence, Velvet is designed to simplify the more complex aspects of Flutter d
 
 ## Creating a New Project
 
-::: warning
-The velvet_cli:init is not yet implemented. We are working on it.
-:::
-
 Currently, we are provided a single way to create a new Velvet project.
 
 1. Create a flutter project with the following command:
@@ -43,7 +39,7 @@ flutter pub add dev:velvet_cli
 3. Run the following command to generate the Velvet project structure:
 
 ```bash
-flutter pub run velvet_cli:init
+flutter pub run velvet_cli install
 ```
 
 That's it! You've successfully created a new Velvet project. You can now explore the project structure and start building your app with Velvet.
