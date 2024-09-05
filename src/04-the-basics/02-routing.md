@@ -6,6 +6,23 @@ title: Routing
 
 The Velvet framework uses the [GoRouter](https://pub.dev/packages/go_router) package to handle navigation.
 
+## Important
+
+::: warning
+In order to use the Velvet routing system, you need to run the build_runner after creating a new route (or have it running in watch mode).
+Without running the build_runner, the routes will not be generated and the application will not work.
+
+```shell
+flutter pub run build_runner build
+```
+
+or
+
+```shell
+flutter pub run build_runner watch --delete-conflicting-outputs
+```
+:::
+
 ## Why GoRouter?
 
 The GoRouter package is a declarative router for Flutter that allows you to define your routes in a simple and concise way and it is an official package by [Flutter](https://flutter.dev).
@@ -97,6 +114,21 @@ The build_runner will generate the `routes.g.dart` file that contains the routes
 As routes increase, the routes.dart file can become large due to the number of imports and parts, but the tree of routes will be always organized and easy to maintain.
 
 ## Creating a New Route
+
+::: warning
+In order to use the Velvet routing system, you need to run the build_runner after creating a new route (or have it running in watch mode).
+Without running the build_runner, the routes will not be generated and the application will not work.
+
+```shell
+flutter pub run build_runner build
+```
+
+or
+
+```shell
+flutter pub run build_runner watch --delete-conflicting-outputs
+```
+:::
 
 To create a new route, use the `make:route` command.
 
