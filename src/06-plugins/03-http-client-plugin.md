@@ -59,7 +59,7 @@ void main() {
     ..withPlugins((pluginManager) {
         pluginManager.addPlugin(HttpClientVelvetPlugin());
     })
-    ..withBoot((httpClient) {  // [!code focus]
+    ..withBoot(() {  // [!code focus]
       container.httpClient.dioInstance.addInterceptor(YourInterceptor());  // [!code focus]
     });  // [!code focus]
     ..run();
