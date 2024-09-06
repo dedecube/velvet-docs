@@ -131,6 +131,6 @@ main () {
         ..register<MyConfigContract>(MyConfig());
     })
     ..optOutFromEnvLoading()
-    ..run(loadEnv: false);
+    ..run();
 }
 ``` 
