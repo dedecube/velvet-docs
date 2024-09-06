@@ -15,10 +15,21 @@ Using an IoC container simplifies dependency management by centralizing the crea
 To register services or dependencies with the Velvet IoC container, utilize the globally exported `container` instance, which functions identically to the `get_it` package. You can register dependencies using `container.registerSingleton`, `container.registerFactory`, or other registration methods provided by `get_it`. Here’s an example of how to register a singleton service:
 
 ```dart
-import 'package:velvet/velvet.dart';
+import 'package:velvet_framework/velvet_framework.dart';
 
-void setupDependencies() {
-  container.registerSingleton<MyService>(MyServiceImplementation());
+abstract class MyServiceContract {
+  void performAction();
+}
+
+class MyService implements MyServiceContract {
+  @override
+  void performAction() {
+    print('Performing action...');
+  }
+}
+
+void someFunction() {
+  container.registerSingleton<MyServiceContract>(MyService());
 }
 ```
 
@@ -28,7 +39,7 @@ Resolving dependencies from the Velvet IoC container is straightforward and mirr
 
 ```dart
 void someFunction() {
-  final myService = container.get<MyService>();
+  final myService = container.get<MyServiceContract>();
   myService.performAction();
 }
 ```
