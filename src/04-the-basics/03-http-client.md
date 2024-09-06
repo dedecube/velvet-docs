@@ -1,10 +1,10 @@
 ---
-title: HTTP Client
+title: Velvet Http
 ---
 
 # HTTP Client
 
-Velvet provides a robust HTTP client built on top of Dio, offering a structured approach to making HTTP requests and handling responses. By encapsulating requests and responses within classes, Velvet simplifies API interactions and enforces a clear contract for request structure and response handling.
+Velvet provides a HTTP client built on top of Dio, offering a structured approach to making HTTP requests and handling responses. By encapsulating requests and responses within classes, Velvet simplifies API interactions and enforces a clear contract for request structure and response handling.
 
 ::: info
 Velvet’s HTTP client is built on top of Dio, a powerful HTTP client for Dart and Flutter. Dio provides a rich set of features, including interceptors, request cancellation, and response parsing, which are leveraged by Velvet to enhance the HTTP client’s capabilities.
@@ -14,11 +14,28 @@ For more information on Dio, refer to the [Dio documentation](https://pub.dev/pa
 
 ## Making Requests
 
-Each HTTP request in Velvet is represented by a class that extends `HttpRequestContract`. This class defines the specifics of the request, including the path, method, and how to map the response data.
+Each HTTP request in Velvet is represented by a class that extends `VelvetHttpRequest<Parsed, Raw>`. This class defines the specifics of the request, including the path, method, and how to map the response data.
 
 ### Request Structure
 
-Classes extending `HttpRequestContract` must define the following:
+Classes extending `VelvetHttpRequest<Parsed, Raw>` must define the following:
+
+The `Parsed` type represents the desired object type to be returned from the request, while the `Raw` type represents the raw response data type.
+For example, if the response is a list of `Product`, the `Parsed` type would be `List<Product>`, and the `Raw` type would be `List<Map<String, dynamic>>`.
+
+```dart
+class ProductGetAllHttpRequest<List<Product>>, List<Map<String, dynamic>> {
+  //
+}
+```
+
+of course, the `Parsed` and `Raw` types can be any type you want and to make it more clear, you can define them as a separate type or use some existing class that extends `VelvetHttpRequest<Parsed, Raw>`, for example the `VelvetHttpRequestHandlingListResponse<T>` or `VelvetHttpRequestHandlingMapResponse<T>`.
+
+```dart
+class ProductGetAllHttpRequest extends VelvetHttpRequestHandlingListResponse<Product> {
+  //
+}
+```
 
 - **`rawPath`**: The endpoint path for the request.
 - **`method`**: The HTTP method to be used (e.g., GET, POST).
@@ -28,7 +45,7 @@ Classes extending `HttpRequestContract` must define the following:
 
 ```dart
 class UserMeShowHttpRequest
-    extends HttpRequestMapContract<UserMeShowHttpRequestResponse> {
+    extends VelvetHttpRequestHandlingMapResponse<User> {
   UserMeShowHttpRequest();
 
   @override
@@ -38,7 +55,7 @@ class UserMeShowHttpRequest
   HttpRequestMethodEnum get method => HttpRequestMethodEnum.get;
 
   @override
-  get itemMapper => UserMeShowHttpRequestResponse.fromJson;
+  get itemMapper => User.fromJson;
 }
 ```
 
@@ -49,7 +66,7 @@ Responses are managed using the `HttpResponse` class, which wraps the raw respon
 **Usage Example:**
 
 ```dart
-final response = await apiHttp().request(UserMeShowHttpRequest());
+final response = await httpClient.request(UserMeShowHttpRequest());
 final parsed = response.toObject();
 ```
 
